@@ -63,7 +63,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
             
             cityLabel.text = "Location Found"
             
-            //let params: [String: String] = ["lat": latitude, "lon": longitude, "appid": APP_ID]
+            let params: [String: String] = ["lat": latitude, "lon": longitude, "appid": APP_ID]
         }
     }
     
