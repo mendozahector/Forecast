@@ -9,16 +9,14 @@
 import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
-
+    @IBOutlet var dayLabel: UILabel!
+    
+    
+    @IBOutlet weak var forecastImage: UIImageView!
+    @IBOutlet weak var minForecastLabel: UILabel!
+    @IBOutlet weak var maxForecastLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

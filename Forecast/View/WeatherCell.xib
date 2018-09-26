@@ -56,7 +56,16 @@
                     <constraint firstItem="TvT-2k-wng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qah-5i-8PP"/>
                 </constraints>
             </tableViewCellContentView>
+            <accessibility key="accessibilityConfiguration">
+                <accessibilityTraits key="traits" notEnabled="YES"/>
+            </accessibility>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dayLabel" destination="9Gh-mR-PP7" id="n1e-3l-gEM"/>
+                <outlet property="forecastImage" destination="zXd-Zd-5Yl" id="xtH-rZ-kZc"/>
+                <outlet property="maxForecastLabel" destination="4al-G7-sPj" id="qYF-RJ-Lfb"/>
+                <outlet property="minForecastLabel" destination="e6L-Gm-H7g" id="mav-Jt-RcZ"/>
+            </connections>
             <point key="canvasLocation" x="132.80000000000001" y="164.16791604197903"/>
         </tableViewCell>
     </objects>
