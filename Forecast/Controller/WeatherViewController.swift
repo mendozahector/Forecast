@@ -11,7 +11,7 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class WeatherViewController: UIViewController, UIGestureRecognizerDelegate {
+class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, ChangeCityDelegate {
     let APP_ID = "7f710662df5dd7624b83ff0a50dfedf5"
     let WEATHER_URL = "https://api.openweathermap.org/data/2.5/forecast"
     
@@ -29,21 +29,31 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startLocationServices()
+        setupTableView()
+        setupGestureRecognizer()
+    }
+
+    //MARK: - Main Methods
+    func startLocationServices() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
+    }
+    
+    func setupTableView() {
         weatherTableVIew.delegate = self
         weatherTableVIew.dataSource = self
         weatherTableVIew.register(UINib(nibName: "WeatherCell", bundle: nil), forCellReuseIdentifier: "CustomWeatherCell")
         weatherTableVIew.rowHeight = 65.0
-        
+    }
+    
+    func setupGestureRecognizer() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.temperatureStackTapped))
         gestureRecognizer.delegate = self
         temperatureStack.addGestureRecognizer(gestureRecognizer)
     }
-
     
     //MARK: - Networking
     func getWeatherData(url: String, parameters: [String: String]) {
@@ -123,27 +133,6 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate {
         changeDegrees()
         updateUI()
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToChangeCity" {
-            
-            print("Preparing to go to goToChangeCity")
-        }
-    }
-    
-    
-    //MARK: - Update User Interface
-    func updateUI() {
-        cityLabel.text = weatherData.cityName
-        temperatureLabel.text = String(format: "%.0f", weatherData.cityTemperature)
-        if weatherData.isFahreinheit == true {
-            temperatureSymbolLabel.text = "° F"
-        } else {
-            temperatureSymbolLabel.text = "° C"
-        }
-        weatherImage.image = UIImage(named: weatherData.weatherIconName)
-        
-        weatherTableVIew.reloadData()
-    }
     
     
     //MARK: - Change Temperature Degrees
@@ -168,6 +157,41 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 weatherData.isFahreinheit = false
             }
+        }
+    }
+    
+    
+    //MARK: - Update User Interface
+    func updateUI() {
+        cityLabel.text = weatherData.cityName
+        temperatureLabel.text = String(format: "%.0f", weatherData.cityTemperature)
+        if weatherData.isFahreinheit == true {
+            temperatureSymbolLabel.text = "° F"
+        } else {
+            temperatureSymbolLabel.text = "° C"
+        }
+        weatherImage.image = UIImage(named: weatherData.weatherIconName)
+        
+        weatherTableVIew.reloadData()
+    }
+    
+    
+    //MARK: - Delegate Methods
+    func userEnteredANewCityName(city: String) {
+        let params: [String: String] = ["q": city, "appid": APP_ID]
+        
+        getWeatherData(url: WEATHER_URL, parameters: params)
+    }
+    
+    func getCurrentLocationWeather() {
+        startLocationServices()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToChangeCity" {
+            let destinationVC = segue.destination as! ChangeCityViewController
+            
+            destinationVC.delegate = self
         }
     }
 }
