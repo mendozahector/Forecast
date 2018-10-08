@@ -19,7 +19,7 @@ protocol ChangeCityDelegate {
 class ChangeCityViewController: UIViewController {
     let APP_ID = "7f710662df5dd7624b83ff0a50dfedf5"
     let WEATHER_URL = "https://api.openweathermap.org/data/2.5/forecast"
-    var successfulCall: Bool = false
+    var cityName: String?
     
     var delegate: ChangeCityDelegate?
     @IBOutlet weak var cityNameTextField: UITextField!
@@ -29,13 +29,18 @@ class ChangeCityViewController: UIViewController {
         
     }
     
-    func checkAPICall(url: String, parameters: [String: String]) {
+    func checkAPICall(url: String, parameters: [String: String], action: String) {
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
             response in
             if response.result.isSuccess {
                 if let cityName = JSON(response.result.value!)["city"]["name"].string {
-                    self.delegate?.userEnteredANewCityName(city: cityName)
-                    self.dismissView()
+                    if action == "changeCity" {
+                        self.delegate?.userEnteredANewCityName(city: cityName)
+                        self.dismissView()
+                    } else if action == "addCity" {
+                        
+                    }
+                    
                 } else {
                     print("Invalid City Name")
                 }
@@ -57,7 +62,7 @@ class ChangeCityViewController: UIViewController {
         } else {
             let params: [String: String] = ["q": cityName, "appid": APP_ID]
             
-            checkAPICall(url: WEATHER_URL, parameters: params)
+            checkAPICall(url: WEATHER_URL, parameters: params, action: "changeCity")
         }
     }
     
