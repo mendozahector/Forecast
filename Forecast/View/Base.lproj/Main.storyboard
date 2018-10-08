@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,21 +14,21 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Forecast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d6Z-Ge-9YW" userLabel="Forecast Tableview">
-                                <rect key="frame" x="0.0" y="379" width="320" height="325"/>
+                                <rect key="frame" x="0.0" y="379" width="375" height="325"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="twm-xA-Hca"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherCell" id="xnK-4l-fT3" customClass="WeatherTableViewCell" customModule="Forecast" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xnK-4l-fT3" id="sIX-rE-NQh" customClass="WeatherTableViewCell" customModule="Forecast" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration">
@@ -38,7 +38,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gf-LS-L7V" userLabel="Change City Button">
-                                <rect key="frame" x="236" y="20" width="64" height="64"/>
+                                <rect key="frame" x="291" y="20" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="dqs-dX-kc4"/>
                                     <constraint firstAttribute="height" constant="64" id="o2A-sw-OFI"/>
@@ -49,16 +49,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mcE-Il-4Du">
-                                <rect key="frame" x="0.0" y="94" width="320" height="245"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="245"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washington, D.C." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJQ-xG-IRt" userLabel="City Label">
-                                        <rect key="frame" x="13" y="0.0" width="294" height="47.5"/>
+                                        <rect key="frame" x="40.5" y="0.0" width="294" height="47.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyZ-zD-PiO" userLabel="Temperature Stack">
-                                        <rect key="frame" x="110" y="62.5" width="100" height="47.5"/>
+                                        <rect key="frame" x="137.5" y="62.5" width="100" height="47.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdk-ll-Dvb" userLabel="Temperature Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="44.5" height="47.5"/>
@@ -75,7 +75,7 @@
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shower3" translatesAutoresizingMaskIntoConstraints="NO" id="0uQ-is-NHa" userLabel="Weather Image">
-                                        <rect key="frame" x="100" y="125" width="120" height="120"/>
+                                        <rect key="frame" x="127.5" y="125" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="C9y-FL-k9j"/>
                                             <constraint firstAttribute="height" constant="120" id="Y5c-Pk-mmu"/>
@@ -115,23 +115,23 @@
             <objects>
                 <viewController id="l6e-xy-Ish" customClass="ChangeCityViewController" customModule="Forecast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eTt-kf-lKv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jot-rc-O2u">
-                                <rect key="frame" x="0.0" y="222" width="320" height="124"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="168"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter City Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWb-xF-Xuj" userLabel="Enter City Name TextField">
-                                        <rect key="frame" x="35" y="0.0" width="250" height="30"/>
+                                        <rect key="frame" x="62.5" y="0.0" width="250" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="F4e-Eq-AlE"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="dX1-wX-4p6"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF8-qq-XdM" userLabel="Change City Button">
-                                        <rect key="frame" x="93" y="38" width="134" height="42"/>
+                                        <rect key="frame" x="120.5" y="38" width="134" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Change City">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,7 +141,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4W-TJ-buK" userLabel="Current Location Button">
-                                        <rect key="frame" x="87.5" y="88" width="145" height="36"/>
+                                        <rect key="frame" x="115" y="88" width="145" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Current Location">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -150,32 +150,64 @@
                                             <action selector="currentLocationPressed:" destination="l6e-xy-Ish" eventType="touchUpInside" id="eNu-1H-dhc"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ4-Rp-hoN" userLabel="Add City Button">
+                                        <rect key="frame" x="149.5" y="132" width="76" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Add City">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addCityPressed:" destination="l6e-xy-Ish" eventType="touchUpInside" id="Cln-95-lUy"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="1xS-BP-5vE"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1KE-qz-Y1T" userLabel="Back Button">
                                 <rect key="frame" x="20" y="30" width="32" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Bvz-i7-mAm"/>
-                                    <constraint firstAttribute="width" constant="32" id="U9u-9Z-bLP"/>
+                                    <constraint firstAttribute="width" constant="32" id="fMc-Ie-Qn7"/>
+                                    <constraint firstAttribute="height" constant="32" id="fNA-dW-MCB"/>
                                 </constraints>
                                 <state key="normal" image="left"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="l6e-xy-Ish" eventType="touchUpInside" id="3ka-bu-WWo"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tdh-Fw-7jJ" userLabel="City List Table View">
+                                <rect key="frame" x="0.0" y="270" width="375" height="397"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityListCell" id="IWz-6V-wmB">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IWz-6V-wmB" id="LbK-mx-xRf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.54170984030000002" green="0.62536388639999996" blue="0.72086167339999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jot-rc-O2u" firstAttribute="centerY" secondItem="eTt-kf-lKv" secondAttribute="centerY" id="1DQ-he-QRX"/>
-                            <constraint firstItem="jot-rc-O2u" firstAttribute="centerX" secondItem="eTt-kf-lKv" secondAttribute="centerX" id="YWD-Ml-Ugt"/>
-                            <constraint firstItem="jot-rc-O2u" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" id="fzP-X7-OHj"/>
-                            <constraint firstItem="1KE-qz-Y1T" firstAttribute="top" secondItem="kOK-md-QLb" secondAttribute="top" constant="10" id="hQh-TB-dVX"/>
-                            <constraint firstItem="kOK-md-QLb" firstAttribute="trailing" secondItem="jot-rc-O2u" secondAttribute="trailing" id="jCk-58-MeG"/>
-                            <constraint firstItem="1KE-qz-Y1T" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" constant="20" id="ob0-yk-U5K"/>
+                            <constraint firstItem="jot-rc-O2u" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" id="2KG-hn-vXf"/>
+                            <constraint firstItem="Tdh-Fw-7jJ" firstAttribute="top" secondItem="jot-rc-O2u" secondAttribute="bottom" constant="30" id="6ot-2o-PjQ"/>
+                            <constraint firstItem="1KE-qz-Y1T" firstAttribute="top" secondItem="kOK-md-QLb" secondAttribute="top" constant="10" id="FZA-x0-rHb"/>
+                            <constraint firstItem="Tdh-Fw-7jJ" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" id="O7C-xE-IGL"/>
+                            <constraint firstItem="kOK-md-QLb" firstAttribute="trailing" secondItem="Tdh-Fw-7jJ" secondAttribute="trailing" id="UeQ-cU-mfI"/>
+                            <constraint firstItem="kOK-md-QLb" firstAttribute="bottom" secondItem="Tdh-Fw-7jJ" secondAttribute="bottom" id="ZGL-4J-nvV"/>
+                            <constraint firstItem="1KE-qz-Y1T" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" constant="20" id="ePN-zD-BFV"/>
+                            <constraint firstItem="jot-rc-O2u" firstAttribute="top" secondItem="1KE-qz-Y1T" secondAttribute="bottom" constant="10" id="grh-qA-PUm"/>
+                            <constraint firstItem="kOK-md-QLb" firstAttribute="trailing" secondItem="jot-rc-O2u" secondAttribute="trailing" id="r2u-ul-WkJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kOK-md-QLb"/>
                     </view>
                     <connections>
+                        <outlet property="cityListTableView" destination="Tdh-Fw-7jJ" id="7By-1V-3if"/>
                         <outlet property="cityNameTextField" destination="fWb-xF-Xuj" id="iPt-un-5ni"/>
                     </connections>
                 </viewController>
