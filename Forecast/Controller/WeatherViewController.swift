@@ -78,6 +78,7 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
             
             tempData.cityName = cityName
             tempData.cityTemperature = kelvinToCelsius(kelvin: json["list"][0]["main"]["temp"].doubleValue)
+            tempData.isFahreinheit = weatherData.isFahreinheit
             tempData.condition = json["list"][0]["weather"][0]["id"].intValue
             tempData.weatherIconName = tempData.updateWeatherIcon(condition: tempData.condition)
             
@@ -103,12 +104,10 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
                 count += 1
             }
             
+            weatherData = tempData
+            
             if weatherData.isFahreinheit == true {
-                tempData.isFahreinheit = true
-                weatherData = tempData
                 changeDegrees()
-            } else {
-                weatherData = tempData
             }
             
             updateUI()
@@ -130,23 +129,29 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
     }
     
     @objc func temperatureStackTapped() {
-        changeDegrees()
-        updateUI()
+        if !weatherData.cityName.isEmpty {
+            if weatherData.isFahreinheit == false {
+                weatherData.isFahreinheit = true
+            } else {
+                weatherData.isFahreinheit = false
+            }
+            
+            changeDegrees()
+            updateUI()
+        }
     }
     
     
     //MARK: - Change Temperature Degrees
     @objc func changeDegrees() {
         if !weatherData.cityName.isEmpty {
-            if weatherData.isFahreinheit == false {
+            if weatherData.isFahreinheit == true {
                 weatherData.cityTemperature = celsiusToFahrenheit(celsius: weatherData.cityTemperature)
                 
                 for i in 0..<5 {
                     weatherData.minTempForecast[i] = celsiusToFahrenheit(celsius: weatherData.minTempForecast[i])
                     weatherData.maxTempForecast[i] = celsiusToFahrenheit(celsius: weatherData.maxTempForecast[i])
                 }
-                
-                 weatherData.isFahreinheit = true
             } else {
                 weatherData.cityTemperature = fahrenheitToCelsius(fahrenheit: weatherData.cityTemperature)
                 
@@ -154,8 +159,6 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
                     weatherData.minTempForecast[i] = fahrenheitToCelsius(fahrenheit: weatherData.minTempForecast[i])
                     weatherData.maxTempForecast[i] = fahrenheitToCelsius(fahrenheit: weatherData.maxTempForecast[i])
                 }
-                
-                weatherData.isFahreinheit = false
             }
         }
     }
