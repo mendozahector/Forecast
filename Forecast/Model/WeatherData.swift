@@ -14,6 +14,7 @@ class WeatherData {
     var isFahreinheit: Bool = false
     var condition: Int = 0
     var weatherIconName: String = ""
+    var weatherBackground: String = ""
     
     let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var currentDayNum = 0
@@ -62,6 +63,47 @@ class WeatherData {
             
         default :
             return "dunno"
+        }
+    }
+    
+    func updateWeatherBackground(condition: Int) -> String {
+        switch (condition) {
+            
+        case 0...300 :
+            return "tstormBackground"
+            
+        case 301...500 :
+            return "rainBackground"
+            
+        case 501...600 :
+            return "rainBackground"
+            
+        case 601...700 :
+            return "snowBackground"
+            
+        case 701...771 :
+            return "foggyBackground"
+            
+        case 772...799 :
+            return "tstormBackground"
+            
+        case 800 :
+            return "sunnyBackground"
+            
+        case 801...804 :
+            return "cloudyBackground"
+            
+        case 900...903, 905...1000  :
+            return "tstormBackground"
+            
+        case 903 :
+            return "snowBackground"
+            
+        case 904 :
+            return "sunnyBackground"
+            
+        default :
+            return "background"
         }
     }
 }

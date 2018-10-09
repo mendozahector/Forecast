@@ -26,7 +26,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="koY-Ti-0jg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -41,26 +41,28 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6L-Gm-H7g" userLabel="Min Forecast">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4al-G7-sPj" userLabel="Max Forecast">
                                         <rect key="frame" x="50" y="0.0" width="50" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zXd-Zd-5Yl" firstAttribute="centerX" secondItem="TvT-2k-wng" secondAttribute="centerX" id="j60-kn-h1u"/>
                             <constraint firstItem="zXd-Zd-5Yl" firstAttribute="centerY" secondItem="TvT-2k-wng" secondAttribute="centerY" id="qna-bb-ofS"/>
                         </constraints>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" red="0.54170984030000002" green="0.62536388639999996" blue="0.72086167339999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="TvT-2k-wng" secondAttribute="bottom" id="5Vu-ow-7GF"/>
                     <constraint firstItem="TvT-2k-wng" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Ue3-JH-j3c"/>
@@ -68,6 +70,7 @@
                     <constraint firstItem="TvT-2k-wng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qah-5i-8PP"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <accessibility key="accessibilityConfiguration">
                 <accessibilityTraits key="traits" notEnabled="YES"/>
             </accessibility>

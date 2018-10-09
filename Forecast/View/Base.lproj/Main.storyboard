@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="BDx-eF-5HC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d6Z-Ge-9YW" userLabel="Forecast Tableview">
                                 <rect key="frame" x="0.0" y="379" width="375" height="325"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,8 +55,8 @@
                                 <rect key="frame" x="0.0" y="94" width="375" height="245"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washington, D.C." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJQ-xG-IRt" userLabel="City Label">
-                                        <rect key="frame" x="40.5" y="0.0" width="294" height="47.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
+                                        <rect key="frame" x="36" y="0.0" width="303.5" height="47.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -62,13 +65,13 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdk-ll-Dvb" userLabel="Temperature Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="44.5" height="47.5"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="° C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2K-Me-uBE" userLabel="Temperature Symbol Label">
                                                 <rect key="frame" x="44.5" y="0.0" width="55.5" height="47.5"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -87,8 +90,12 @@
                         <color key="backgroundColor" red="0.54170984030000002" green="0.62536388639999996" blue="0.72086167339999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mcE-Il-4Du" secondAttribute="trailing" id="5Qp-P5-Hgr"/>
+                            <constraint firstItem="BDx-eF-5HC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6wS-hy-CWU"/>
                             <constraint firstItem="mcE-Il-4Du" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JI8-mD-lkz"/>
                             <constraint firstItem="d6Z-Ge-9YW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MPY-TX-DqH"/>
+                            <constraint firstItem="BDx-eF-5HC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="R7g-7I-d0x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BDx-eF-5HC" secondAttribute="trailing" id="Xpm-1v-wPA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BDx-eF-5HC" secondAttribute="bottom" id="Z8Z-hI-KA2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3gf-LS-L7V" secondAttribute="trailing" constant="20" id="dHl-oI-ZRz"/>
                             <constraint firstItem="d6Z-Ge-9YW" firstAttribute="top" secondItem="mcE-Il-4Du" secondAttribute="bottom" constant="40" id="jHi-xJ-91M"/>
                             <constraint firstItem="3gf-LS-L7V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kMP-DP-l2r"/>
@@ -98,6 +105,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundWeather" destination="BDx-eF-5HC" id="3hW-nX-Nsf"/>
                         <outlet property="cityLabel" destination="LJQ-xG-IRt" id="zDV-zf-fxp"/>
                         <outlet property="temperatureLabel" destination="Cdk-ll-Dvb" id="Wa5-gB-ffk"/>
                         <outlet property="temperatureStack" destination="yyZ-zD-PiO" id="Cds-c4-hca"/>
@@ -118,6 +126,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cityBackground" translatesAutoresizingMaskIntoConstraints="NO" id="xWZ-eD-Brd" userLabel="background">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jot-rc-O2u">
                                 <rect key="frame" x="0.0" y="72" width="375" height="168"/>
                                 <subviews>
@@ -177,7 +188,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tdh-Fw-7jJ" userLabel="City List Table View">
-                                <rect key="frame" x="0.0" y="270" width="375" height="397"/>
+                                <rect key="frame" x="0.0" y="290" width="375" height="377"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityListCell" id="IWz-6V-wmB">
@@ -188,6 +199,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -195,14 +207,18 @@
                         <color key="backgroundColor" red="0.54170984030000002" green="0.62536388639999996" blue="0.72086167339999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jot-rc-O2u" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" id="2KG-hn-vXf"/>
-                            <constraint firstItem="Tdh-Fw-7jJ" firstAttribute="top" secondItem="jot-rc-O2u" secondAttribute="bottom" constant="30" id="6ot-2o-PjQ"/>
+                            <constraint firstItem="Tdh-Fw-7jJ" firstAttribute="top" secondItem="jot-rc-O2u" secondAttribute="bottom" constant="50" id="6ot-2o-PjQ"/>
+                            <constraint firstItem="xWZ-eD-Brd" firstAttribute="top" secondItem="eTt-kf-lKv" secondAttribute="top" id="AEN-bM-KH3"/>
                             <constraint firstItem="1KE-qz-Y1T" firstAttribute="top" secondItem="kOK-md-QLb" secondAttribute="top" constant="10" id="FZA-x0-rHb"/>
                             <constraint firstItem="Tdh-Fw-7jJ" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" id="O7C-xE-IGL"/>
                             <constraint firstItem="kOK-md-QLb" firstAttribute="trailing" secondItem="Tdh-Fw-7jJ" secondAttribute="trailing" id="UeQ-cU-mfI"/>
+                            <constraint firstItem="xWZ-eD-Brd" firstAttribute="bottom" secondItem="kOK-md-QLb" secondAttribute="bottom" id="YFm-ML-CK5"/>
                             <constraint firstItem="kOK-md-QLb" firstAttribute="bottom" secondItem="Tdh-Fw-7jJ" secondAttribute="bottom" id="ZGL-4J-nvV"/>
                             <constraint firstItem="1KE-qz-Y1T" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" constant="20" id="ePN-zD-BFV"/>
                             <constraint firstItem="jot-rc-O2u" firstAttribute="top" secondItem="1KE-qz-Y1T" secondAttribute="bottom" constant="10" id="grh-qA-PUm"/>
                             <constraint firstItem="kOK-md-QLb" firstAttribute="trailing" secondItem="jot-rc-O2u" secondAttribute="trailing" id="r2u-ul-WkJ"/>
+                            <constraint firstItem="xWZ-eD-Brd" firstAttribute="trailing" secondItem="kOK-md-QLb" secondAttribute="trailing" id="sfT-OD-IuA"/>
+                            <constraint firstItem="xWZ-eD-Brd" firstAttribute="leading" secondItem="kOK-md-QLb" secondAttribute="leading" id="vJG-zq-j8i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kOK-md-QLb"/>
                     </view>
@@ -217,6 +233,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="500" height="755"/>
+        <image name="cityBackground" width="600" height="399.5"/>
         <image name="left" width="32" height="32"/>
         <image name="shower3" width="128" height="128"/>
         <image name="switch" width="64" height="64"/>

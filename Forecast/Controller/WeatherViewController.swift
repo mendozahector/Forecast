@@ -15,6 +15,7 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
     let APP_ID = "7f710662df5dd7624b83ff0a50dfedf5"
     let WEATHER_URL = "https://api.openweathermap.org/data/2.5/forecast"
     
+    @IBOutlet weak var backgroundWeather: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var temperatureSymbolLabel: UILabel!
@@ -81,7 +82,8 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
             tempData.isFahreinheit = weatherData.isFahreinheit
             tempData.condition = json["list"][0]["weather"][0]["id"].intValue
             tempData.weatherIconName = tempData.updateWeatherIcon(condition: tempData.condition)
-            
+            tempData.weatherBackground = tempData.updateWeatherBackground(condition: tempData.condition)
+                
             tempData.currentDayNum = Calendar.current.dateComponents([.weekday], from: Date()).weekday!
             var tempDayNum = tempData.currentDayNum
             for _ in 0..<5 {
@@ -166,6 +168,7 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
     
     //MARK: - Update User Interface
     func updateUI() {
+        backgroundWeather.image = UIImage(named: weatherData.weatherBackground)
         cityLabel.text = weatherData.cityName
         temperatureLabel.text = String(format: "%.0f", weatherData.cityTemperature)
         if weatherData.isFahreinheit == true {

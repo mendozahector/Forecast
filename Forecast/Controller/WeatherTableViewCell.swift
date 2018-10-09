@@ -10,8 +10,6 @@ import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
     @IBOutlet var dayLabel: UILabel!
-    
-    
     @IBOutlet weak var forecastImage: UIImageView!
     @IBOutlet weak var minForecastLabel: UILabel!
     @IBOutlet weak var maxForecastLabel: UILabel!

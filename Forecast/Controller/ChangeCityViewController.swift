@@ -102,7 +102,6 @@ class ChangeCityViewController: UIViewController {
 //MARK: - TableView Methods
 extension ChangeCityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(cityList.count)
         return cityList.count
     }
     
@@ -111,6 +110,8 @@ extension ChangeCityViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.textLabel?.text = "\(cityList[indexPath.row]), \(countryList[indexPath.row])"
         cell.textLabel?.textAlignment = .center
+        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 25.0)
         
         return cell
     }
