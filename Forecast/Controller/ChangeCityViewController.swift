@@ -29,11 +29,26 @@ class ChangeCityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        setupToast()
+    }
+    
+    func setupTableView() {
         cityListTableView.delegate = self
         cityListTableView.dataSource = self
         cityListTableView.tableFooterView = UIView()
     }
     
+    func setupToast() {
+        var style = ToastStyle()
+        style.messageColor = .white
+        style.backgroundColor = .init(white: 0, alpha: 0)
+        
+        ToastManager.shared.style = style
+        ToastManager.shared.position = .top
+    }
+    
+    //MARK: - Networking
     func checkAPICall(url: String, parameters: [String: String], action: String) {
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
             response in
@@ -48,10 +63,10 @@ class ChangeCityViewController: UIViewController {
                         self.cityListTableView.reloadData()
                     }
                 } else {
-                    print("Invalid City Name")
+                    self.view.makeToast("Invalid City. Please Try Again")
                 }
             } else {
-                print("Connection Issues")
+                self.view.makeToast("Connection Issues. Please Try Again")
             }
         }
     }
@@ -64,7 +79,7 @@ class ChangeCityViewController: UIViewController {
         let cityName = cityNameTextField.text!
         
         if cityName.isEmpty {
-            print("Nothing inside textfield")
+            self.view.makeToast("Please enter city name.")
         } else {
             let params: [String: String] = ["q": cityName, "appid": APP_ID]
             
@@ -85,7 +100,7 @@ class ChangeCityViewController: UIViewController {
         let cityName = cityNameTextField.text!
         
         if cityName.isEmpty {
-            print("Nothing inside textfield")
+            self.view.makeToast("Please enter city name.")
         } else {
             let params: [String: String] = ["q": cityName, "appid": APP_ID]
             

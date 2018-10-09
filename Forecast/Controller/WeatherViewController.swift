@@ -21,7 +21,7 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
     @IBOutlet weak var temperatureSymbolLabel: UILabel!
     @IBOutlet weak var temperatureStack: UIStackView!
     @IBOutlet weak var weatherImage: UIImageView!
-    @IBOutlet weak var weatherTableVIew: UITableView!
+    @IBOutlet weak var weatherTableView: UITableView!
     
     
     let locationManager = CLLocationManager()
@@ -44,10 +44,11 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
     }
     
     func setupTableView() {
-        weatherTableVIew.delegate = self
-        weatherTableVIew.dataSource = self
-        weatherTableVIew.register(UINib(nibName: "WeatherCell", bundle: nil), forCellReuseIdentifier: "CustomWeatherCell")
-        weatherTableVIew.rowHeight = 65.0
+        weatherTableView.delegate = self
+        weatherTableView.dataSource = self
+        weatherTableView.register(UINib(nibName: "WeatherCell", bundle: nil), forCellReuseIdentifier: "CustomWeatherCell")
+        weatherTableView.rowHeight = 65.0
+        weatherTableView.tableFooterView = UIView()
     }
     
     func setupGestureRecognizer() {
@@ -65,7 +66,6 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
                 
                 self.updateWeatherData(json: weatherJSON)
             } else {
-                print("Error \(String(describing: response.result.error))")
                 self.cityLabel.text = "Connection Issues"
             }
         }
@@ -87,12 +87,12 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
             tempData.currentDayNum = Calendar.current.dateComponents([.weekday], from: Date()).weekday!
             var tempDayNum = tempData.currentDayNum
             for _ in 0..<5 {
-                if tempDayNum == 8 {
+                if tempDayNum == 7 {
                     tempDayNum = 0
-                } else {
-                    tempData.daysForecast.append(tempData.weekdays[tempDayNum])
-                    tempDayNum += 1
                 }
+                
+                tempData.daysForecast.append(tempData.weekdays[tempDayNum])
+                tempDayNum += 1
             }
             
             var count = 0
@@ -178,7 +178,7 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
         }
         weatherImage.image = UIImage(named: weatherData.weatherIconName)
         
-        weatherTableVIew.reloadData()
+        weatherTableView.reloadData()
     }
     
     
@@ -225,7 +225,6 @@ extension WeatherViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
         cityLabel.text = "Location Unavailable"
     }
 }
@@ -240,15 +239,15 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = weatherTableVIew.dequeueReusableCell(withIdentifier: "CustomWeatherCell", for: indexPath) as! WeatherTableViewCell
+        let cell = weatherTableView.dequeueReusableCell(withIdentifier: "CustomWeatherCell", for: indexPath) as! WeatherTableViewCell
         
-        if !weatherData.cityName.isEmpty {
+        if weatherData.cityName != "" {
             cell.dayLabel.text = weatherData.daysForecast[indexPath.row]
             cell.forecastImage.image = UIImage(named: weatherData.weatherIconNameForecast[indexPath.row])
             cell.minForecastLabel.text = String(format: "%.0f", weatherData.minTempForecast[indexPath.row])
             cell.maxForecastLabel.text = String(format: "%.0f", weatherData.maxTempForecast[indexPath.row])
         } else {
-            //WeatherData Empty
+            cityLabel.text = "No Weather Data"
         }
         
         return cell

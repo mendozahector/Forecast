@@ -21,13 +21,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d6Z-Ge-9YW" userLabel="Forecast Tableview">
-                                <rect key="frame" x="0.0" y="379" width="375" height="325"/>
+                                <rect key="frame" x="0.0" y="384" width="375" height="325"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="twm-xA-Hca"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherCell" id="xnK-4l-fT3" customClass="WeatherTableViewCell" customModule="Forecast" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherCell" id="xnK-4l-fT3" customClass="WeatherTableViewCell" customModule="Forecast" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xnK-4l-fT3" id="sIX-rE-NQh" customClass="WeatherTableViewCell" customModule="Forecast" customModuleProvider="target">
@@ -52,33 +52,33 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mcE-Il-4Du">
-                                <rect key="frame" x="0.0" y="94" width="375" height="245"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="250"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washington, D.C." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJQ-xG-IRt" userLabel="City Label">
-                                        <rect key="frame" x="36" y="0.0" width="303.5" height="47.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJQ-xG-IRt" userLabel="City Label">
+                                        <rect key="frame" x="162.5" y="0.0" width="50" height="50"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyZ-zD-PiO" userLabel="Temperature Stack">
-                                        <rect key="frame" x="137.5" y="62.5" width="100" height="47.5"/>
+                                        <rect key="frame" x="135" y="65" width="105.5" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdk-ll-Dvb" userLabel="Temperature Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="47.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdk-ll-Dvb" userLabel="Temperature Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="° C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2K-Me-uBE" userLabel="Temperature Symbol Label">
-                                                <rect key="frame" x="44.5" y="0.0" width="55.5" height="47.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2K-Me-uBE" userLabel="Temperature Symbol Label">
+                                                <rect key="frame" x="50" y="0.0" width="55.5" height="50"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shower3" translatesAutoresizingMaskIntoConstraints="NO" id="0uQ-is-NHa" userLabel="Weather Image">
-                                        <rect key="frame" x="127.5" y="125" width="120" height="120"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0uQ-is-NHa" userLabel="Weather Image">
+                                        <rect key="frame" x="127.5" y="130" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="C9y-FL-k9j"/>
                                             <constraint firstAttribute="height" constant="120" id="Y5c-Pk-mmu"/>
@@ -111,7 +111,7 @@
                         <outlet property="temperatureStack" destination="yyZ-zD-PiO" id="Cds-c4-hca"/>
                         <outlet property="temperatureSymbolLabel" destination="F2K-Me-uBE" id="sIh-Q0-5fy"/>
                         <outlet property="weatherImage" destination="0uQ-is-NHa" id="XtU-W4-ARO"/>
-                        <outlet property="weatherTableVIew" destination="d6Z-Ge-9YW" id="uOI-d8-jTf"/>
+                        <outlet property="weatherTableView" destination="d6Z-Ge-9YW" id="Gmi-J2-PtW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -234,9 +234,8 @@
     </scenes>
     <resources>
         <image name="background" width="500" height="755"/>
-        <image name="cityBackground" width="600" height="399.5"/>
+        <image name="cityBackground" width="750" height="1334"/>
         <image name="left" width="32" height="32"/>
-        <image name="shower3" width="128" height="128"/>
         <image name="switch" width="64" height="64"/>
     </resources>
 </document>
