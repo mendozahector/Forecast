@@ -26,11 +26,20 @@ class ChangeCityViewController: UIViewController {
     @IBOutlet weak var cityNameTextField: UITextField!
     @IBOutlet weak var cityListTableView: UITableView!
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
         setupToast()
+        
+        if let storedCities = defaults.array(forKey: "storedCities") as? [String] {
+            cityList = storedCities
+            countryList = defaults.array(forKey: "storedCountries") as! [String]
+            
+            cityListTableView.reloadData()
+        }
     }
     
     func setupTableView() {
@@ -60,6 +69,10 @@ class ChangeCityViewController: UIViewController {
                     } else if action == "addCity" {
                         self.countryList.append(JSON(response.result.value!)["city"]["country"].stringValue)
                         self.cityList.append(cityName)
+                        
+                        self.defaults.set(self.cityList, forKey: "storedCities")
+                        self.defaults.set(self.countryList, forKey: "storedCountries")
+                        
                         self.cityListTableView.reloadData()
                     }
                 } else {

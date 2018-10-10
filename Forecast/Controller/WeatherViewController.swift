@@ -27,12 +27,20 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
     let locationManager = CLLocationManager()
     var weatherData = WeatherData()
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        startLocationServices()
         setupTableView()
         setupGestureRecognizer()
+        
+        if let city = defaults.string(forKey: "cityStored") {
+            weatherData.isFahreinheit = defaults.bool(forKey: "isFahrenheit")
+            userEnteredANewCityName(city: city)
+        } else {
+            startLocationServices()
+        }
     }
 
     //MARK: - Main Methods
@@ -75,6 +83,9 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
     //MARK: - JSON Parsing
     func updateWeatherData(json: JSON) {
         if let cityName = json["city"]["name"].string {
+            defaults.set(cityName, forKey: "cityStored")
+            defaults.set(weatherData.isFahreinheit, forKey: "isFahrenheit")
+            
             let tempData = WeatherData()
             
             tempData.cityName = cityName
@@ -134,8 +145,10 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
         if !weatherData.cityName.isEmpty {
             if weatherData.isFahreinheit == false {
                 weatherData.isFahreinheit = true
+                defaults.set(weatherData.isFahreinheit, forKey: "isFahrenheit")
             } else {
                 weatherData.isFahreinheit = false
+                defaults.set(weatherData.isFahreinheit, forKey: "isFahrenheit")
             }
             
             changeDegrees()
@@ -184,6 +197,8 @@ class WeatherViewController: UIViewController, UIGestureRecognizerDelegate, Chan
     
     //MARK: - Delegate Methods
     func userEnteredANewCityName(city: String) {
+        defaults.set(city, forKey: "cityStored")
+        
         let params: [String: String] = ["q": city, "appid": APP_ID]
         
         getWeatherData(url: WEATHER_URL, parameters: params)
