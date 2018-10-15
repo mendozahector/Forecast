@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Toast_Swift
+import SwipeCellKit
 
 protocol ChangeCityDelegate {
     func userEnteredANewCityName(city: String)
@@ -46,6 +47,7 @@ class ChangeCityViewController: UIViewController {
         cityListTableView.delegate = self
         cityListTableView.dataSource = self
         cityListTableView.tableFooterView = UIView()
+        cityListTableView.rowHeight = 80.0
     }
     
     func setupToast() {
@@ -67,6 +69,8 @@ class ChangeCityViewController: UIViewController {
                         self.delegate?.userEnteredANewCityName(city: cityName)
                         self.dismissView()
                     } else if action == "addCity" {
+                        self.cityNameTextField.text = ""
+                        
                         self.countryList.append(JSON(response.result.value!)["city"]["country"].stringValue)
                         self.cityList.append(cityName)
                         
@@ -128,13 +132,14 @@ class ChangeCityViewController: UIViewController {
 
 
 //MARK: - TableView Methods
-extension ChangeCityViewController: UITableViewDelegate, UITableViewDataSource {
+extension ChangeCityViewController: UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cityList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = cityListTableView.dequeueReusableCell(withIdentifier: "CityListCell", for: indexPath)
+        let cell = cityListTableView.dequeueReusableCell(withIdentifier: "CityListCell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
         
         cell.textLabel?.text = "\(cityList[indexPath.row]), \(countryList[indexPath.row])"
         cell.textLabel?.textAlignment = .center
@@ -147,5 +152,27 @@ extension ChangeCityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.userEnteredANewCityName(city: cityList[indexPath.row])
         dismissView()
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            self.cityList.remove(at: indexPath.row)
+            self.countryList.remove(at: indexPath.row)
+            
+            self.defaults.set(self.cityList, forKey: "storedCities")
+            self.defaults.set(self.countryList, forKey: "storedCountries")
+        }
+        
+        deleteAction.image = UIImage(named: "delete-icon")
+        
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        return options
     }
 }
