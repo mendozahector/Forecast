@@ -18,6 +18,6 @@ My personal weather forecast using RESTful APIs and User Defaults for persistive
 
 
 ## Finished App
-<img src="cryptotrackr.gif" width="250">
+<img src="forecast.gif" width="250">
 
 Copyright © Hector Mendoza
